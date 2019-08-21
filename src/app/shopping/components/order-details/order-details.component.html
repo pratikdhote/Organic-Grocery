@@ -1,0 +1,29 @@
+<h2>Your Order</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of items">
+    <tr>
+      <td>
+        <div class="thumbnail" [style.backgroundImage]="'url(' + item.product.imageUrl + ')'"></div>
+      </td>
+      <td>{{item.product.title}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.totalPrice | currency:'USD'}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Total</th>
+      <th></th>
+      <th></th>
+      <th>{{ getTotalPrice() | currency:'USD' }}</th>
+    </tr>
+  </tfoot>
+</table>
